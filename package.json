@@ -19,5 +19,8 @@
   "homepage": "https://github.com/brettgoss/abc-map#readme",
   "dependencies": {
     "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "dotenv": "^2.0.0"
   }
 }
