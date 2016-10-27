@@ -1,11 +1,86 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 body {
   font-family: 'Roboto Condensed', sans-serif;
+  margin-top: 60px;
+  overflow: hidden;
 }
-nav p {
+#navbar {
+  position: fixed;
+  height: 60px;
+  top: 0;
+  border-bottom: 1.5px solid #eee;
+  z-index: 999;
+  background: white;
+  width: 100%;
+}
+#navbar .header {
   font-size: 200%;
-  margin: 20px;
+  float: left;
+  width: 30%;
+  padding: 10px;
+}
+#navbar .login {
+  float: right;
+  margin: 5px 10px;
+}
+#navbar .login div {
+  display: inline-block;
+  background: #eee;
+  height: 3em;
+  width: auto;
+  padding: 1em;
+  margin-left: 5px;
+}
+#navbar a {
+  height: 100%;
+  padding: 10px;
+  color: #000;
+}
+
+/* Page Content */
+#main-container {
+  top: 60px;
+  left: 0;
+  width: 38.2%;
+  position: absolute;
+  height: 100%;
+  overflow: scroll;
+  padding: 10px;
+  background: #eee;
+}
+#content {
+  height: 50%;
+  font-size: 100%;
+}
+#filler {
+  height: 40%;
+}
+#map-container {
+  top: 60px;
+  width: 61.8%;
+  right: 0px;
+  position: fixed;
+  bottom: 40px;
 }
 #mapid {
-  height: 50em;
-  margin: 5px;
+  height: 100%;
+}
+footer {
+  display: block;
+  border-top: 1.5px solid #eee;
+  height: 40px;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  background: white;
+}
+footer p {
+  margin: 10px auto;
+  padding-right: 5px;
+  float: right;
 }
