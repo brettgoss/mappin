@@ -1,29 +1,24 @@
-//////////////////
-*     Server    *
-//////////////////
-
-/server/features/userAuth
-/server/features/heroku
-
-
 
 //////////////////
+*    External    *
 *  Dependancies  *
 //////////////////
 
 */mvp/git
-/mvp/ajax
-/mvp/jQuery
 */mvp/express
 */mvp/dotenv
-/mvp/bodyParser
-/mvp/bootstrap
-/mvp/sass
-/mvp/leaflet.js
+*/mvp/leaflet.js
 
-/db/postgresql
-/db/heroku
+/server/heroku
+/server/ajax
+/server/bodyParser
+
+/improvements/jQuery
+/improvements/bootstrap
+/improvements/sass
+
 /db/knex
+/db/postgresql
 
 
 
@@ -32,9 +27,10 @@
 * Viable Product *
 //////////////////
 
-/server/mvp
-/mvp/viewMap
-/mvp/moveMap
+*/server/mvp
+
+*/mvp/viewMap
+*/mvp/moveMap
 /mvp/createPoints
 /mvp/deletePoints
 /mvp/savePoints

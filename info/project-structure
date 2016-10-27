@@ -1,0 +1,51 @@
+
+    ***************                         ***************
+    |  Deployed   |                         |    Local    |
+    ***************                         ***************
+
+\\\\\\\\\\\\\\\\\\\\\\                   \\\\\\\\\\\\\\\\\\\\\\
+\                    \                   \                    \
+\      Website       \                   \      Website       \
+\     (Content)      \                   \     (Content)      \
+\                    \                   \                    \
+\\\\\\\\\\\\\\\\\\\\\\                   \\\\\\\\\\\\\\\\\\\\\\
+          |                                        |
+          |                                        |
+\\\\\\\\\\\\\\\\\\\\\\                   \\\\\\\\\\\\\\\\\\\\\\
+\                    \                   \                    \
+\      Hosting       \                   \      Database      \
+\      (Heroku)      \                   \     (Postgres)     \
+\                    \                   \                    \
+\\\\\\\\\\\\\\\\\\\\\\                   \\\\\\\\\\\\\\\\\\\\\\
+          |
+          |
+\\\\\\\\\\\\\\\\\\\\\\
+\                    \
+\      Database      \
+\     (Postgres)     \
+\                    \
+\\\\\\\\\\\\\\\\\\\\\\
+
+
+Pros:
+----------------------------          ------------------------------
+* Website is avail at a URL           * Easier to initially setup and maintain
+* Data is hosted remotely             * Each local copy has own database
+
+
+Cons:
+----------------------------          ------------------------------
+* Might be difficult to deploy        * Not accessible without deploying locally
+* Each commit to master needs         * Each local copy has different data...
+  to be pushed to Heroku                - potentially inconsistent
+                                        - might be harder to share data as a user
+
+Consensus:
+----------------------------
+ Might as well start local, because we'll need local development copies of a
+ Postgres database anyways. Once we need to scale the project up, it should be
+ pretty straightforward at that point to just push our master branch to heroku.
+
+ If we deploy to heroku now, we'll end up filling our production DB with unfinished
+ data, and will need to, at some point, delete the production data (which doesn't
+ sound like a good idea.)
