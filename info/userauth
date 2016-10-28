@@ -1,0 +1,9 @@
+
+
+
+* BIGSERIAL is better to use than SERIAL
+  - BIGSERIAL PRIMARY KEY NOT NULL,
+
+* VARCHAR(num) is flexible whereas CHAR(num) requires the exact number
+
+* UNIQUE is good to use when storing usernames.
