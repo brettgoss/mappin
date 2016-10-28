@@ -1,4 +1,6 @@
-{"type":"FeatureCollection","features":[
+{
+  "type":"FeatureCollection",
+  "features":[
   {
     "type":"Feature",
     "properties":{},
@@ -8,10 +10,43 @@
       "coordinates":[-123.41285169124605,48.50227498809745]
       }
     },
-  {"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.40272367000581,48.50193376345416]}},
-  {"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.70397329330444,48.63880752291323]}}
+  {
+    "type":"Feature",
+    "properties":{},
+    "geometry":
+    {
+      "type":"Point",
+      "coordinates":[-123.40272367000581,48.50193376345416]
+      }
+    },
+  {
+    "type":"Feature",
+    "properties":{
+      "name": "brett's house"
+    },
+    "geometry":
+    {
+      "type":"Point",
+      "coordinates":[-123.70397329330444,48.63880752291323]
+      }
+    }
   ],
-  "bbox":[[-123.81385803222658,48.417808773898955,-123.27072143554689,48.70229082986852]]}
+  "bbox":[[-123.81385803222658,48.417808773898955,-123.27072143554689,48.70229082986852]]
+}
+
+
+
+{
+  "type":"FeatureCollection",
+  "features":[
+    {
+      "type":"Feature",
+      "properties":{},
+      "geometry":{
+        "type":"Point","coordinates":[-123.3467620611191,48.43284538647477]}},{"type":"Feature","properties":{},"geometry":{"type":"LineString","coordinates":[[-123.34144055843355,48.42453023389251],[-123.3665031194687,48.43125080512248],[-123.35895001888277,48.43512327303003]]}}],"bbox":[[-123.43294143676759,48.4118840383916,-123.29715728759767,48.44218407236502]]}
+
+
+
 
 
 
