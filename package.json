@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "local": "./node_modules/.bin/nodemon --ignore public/",
     "knex": "./node_modules/.bin/knex",
-    "sass": "node_modules/.bin/node-sass assets/style.scss public/styles/style.css --watch"
+    "sass": "node_modules/.bin/node-sass --watch assets/style.scss public/styles/style.css"
   },
   "repository": {
     "type": "git",

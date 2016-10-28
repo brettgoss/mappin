@@ -4,14 +4,9 @@
 <head>
 
   <title>MAPPIN | Home</title>
-  <!-- normalize css -->
-  <link rel="stylesheet" href="styles/normalize.css" />
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <!-- main stylesheet -->
   <link rel="stylesheet" href="styles/style.css" />
   <!-- Leaflet CSS -->
@@ -20,6 +15,9 @@
   <script type="text/javascript" src="vendor/leaflet/leaflet.js"></script>
   <!-- jQuery Min -->
   <script type="text/javascript" src="/vendor/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <!-- External Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
 
@@ -31,29 +29,44 @@
 
 </head>
 <body>
-  <nav id="navbar">
-    <span class="header">MAPPIN</span>
-    <div class="login">
-      <div><a>Login</a></div>
-      <div><a>Signup</a></div>
+  <nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar">MAP</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+       <a class="navbar-brand" href="#">MAPPIN</a>
+      </div>
+      <ul class="login">
+        <button type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
+        <button type="button" class="btn btn-default navbar-btn navbar-right">Register</button>
+      </ul>
     </div>
   </nav>
   <content>
     <section id="main-container">
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Success!</strong> This is a test confirmation message.
+        <p>We could probably use this built in styling for import confirmation.</p>
+      </div>
       <div id="content">
         <h1>Here's da lists of maps</h1>
-        <ul>
-          <li>
-            <p>Rad Map Of Rad Places</p>
-            <p>Created by Brett</p>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <span class="title">Rad Map Of Rad Places</span>
+            <span class="user">&#64;Aileen</span>
           </li>
-          <li>
-            <p>Meodicre Map Of Meodicre Places</p>
-            <p>Created by Brett</p>
+          <li class="list-group-item">
+            <span class="title">Meodicre Map Of Meodicre Places</span>
+            <span class="user">&#64;Brett</span>
           </li>
-          <li>
-            <p>Lame Map Of Lame Places</p>
-            <p>Created by Brett</p>
+          <li class="list-group-item">
+            <span class="title">Lame Map Of Lame Places</span>
+            <span class="user">&#64;Cecia</span>
           </li>
         </ul>
       </div>
@@ -69,9 +82,9 @@
     </section>
   </content>
   <footer>
-    <p>
-      page lovingly created by ABC INC
-    </p>
+    <div class="container-fluid">
+      <p id="credit">page lovingly created by ABC INC</p>
+    </div>
   </footer>
 </body>
 </html>

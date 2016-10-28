@@ -1,32 +1,43 @@
-#navbar {
-  position: fixed;
-  height: 60px;
-  top: 0;
+.navbar-fixed-top {
   border-bottom: 1.5px solid #eee;
-  z-index: 999;
-  background: white;
-  width: 100%;
 }
-#navbar .header {
-  font-size: 200%;
-  float: left;
-  width: 30%;
-  padding: 10px;
+
+.navbar-brand {
+  text-shadow: 1px 1px 1px #0e4358;
+  font-size: 3em;
+  color: black;
 }
-#navbar .login {
-  float: right;
-  margin: 5px 10px;
+
+
+// .navbar {
+//   position: fixed;
+//   height: $navbar-height;
+//   top: 0;
+//   z-index: 999;
+//   background: white;
+//   width: 100%;
+//
+// }
+// .navbar .header {
+//   font-size: 200%;
+//   float: left;
+//   width: 30%;
+//   padding: 10px;
+// }
+.navbar .login {
+//   float: right;
+  // margin: auto 10px;
 }
-#navbar .login div {
-  display: inline-block;
-  background: #eee;
+.navbar .login button {
+//   display: inline-block;
+//   background: #eee;
   height: 3em;
-  width: auto;
-  padding: 1em;
-  margin-left: 5px;
+//   width: auto;
+//   padding: 1em;
+  margin: 5px;
 }
-#navbar a {
-  height: 100%;
-  padding: 10px;
-  color: #000;
-}
+// .navbar a {
+//   height: 100%;
+//   padding: 10px;
+//   color: #000;
+// }
