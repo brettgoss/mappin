@@ -1,3 +1,4 @@
+$(function() {
 // Loads map with default startingplace
 var map = L.map('mapid').setView([48.427, -123.365], 13);
 //map tile
@@ -60,14 +61,30 @@ map.on('draw:created', function (e) {
     editableLayers.addLayer(layer);
 });
 
-document.getElementById('export').onclick = function(e) {
+document.getElementById('export').onclick = function(event) {
             // Extract GeoJson from featureGroup
             var data = editableLayers.toGeoJSON();
 
             // Stringify the GeoJson
             var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
-
             // Create export
             document.getElementById('export').setAttribute('href', 'data:' + convertedData);
-            // document.getElementById('export').setAttribute('download','data.geojson');
+
+            document.getElementById('export').setAttribute('download','data.geojson');
+        event.preventDefault();
+        var newData = [];
+        for(var i = 0; i < data.features.length; i++) {
+          newData = data.features[i].geometry.coordinates;
+          $('#content').children('ul').append(`<li>${newData}</li>`);
+          console.log(newData);
         }
+    // $.ajax({
+    //   method: "POST",
+    //   url: "/exports",
+    //   data: data,
+    //   dataType: 'json'
+    // }).done(function (data){
+      // $('#content').children('ul').append(`<li>${newData}</li>`);
+    // })
+}
+})
