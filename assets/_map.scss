@@ -1,0 +1,27 @@
+#map-container {
+  top: 60px;
+  width: 61.8%;
+  right: 0px;
+  position: fixed;
+  bottom: 40px;
+}
+#mapid {
+  height: 100%;
+}
+#import, #export {
+  display: block;
+  position: absolute;
+  top:70px;
+  left:10px;
+  z-index:900;
+  background:white;
+  color:black;
+  padding:6px;
+  border-radius:4px;
+  cursor: pointer;
+  font-size:12px;
+  text-decoration:none;
+}
+#import {
+  top: 100px;
+}

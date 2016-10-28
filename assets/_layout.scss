@@ -1,0 +1,42 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-top: 60px;
+  overflow: hidden;
+}
+#main-container {
+  top: 60px;
+  left: 0;
+  width: 38.2%;
+  position: absolute;
+  height: 100%;
+  overflow: scroll;
+  padding: 10px;
+  background: #eee;
+}
+#content {
+  height: 70%;
+  font-size: 100%;
+}
+#filler {
+  height: 40%;
+}
+footer {
+  display: block;
+  border-top: 1.5px solid #eee;
+  height: 40px;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  background: white;
+}
+footer p {
+  margin: 10px auto;
+  padding-right: 5px;
+  float: right;
+}
