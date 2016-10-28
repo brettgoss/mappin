@@ -1,6 +1,6 @@
 $(function() {
 // Loads map with default startingplace
-var map = L.map('mapid').setView([48.427, -123.365], 13);
+var map = L.map('mapid').setView([48.457, -123.365], 12);
 //map tile
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
