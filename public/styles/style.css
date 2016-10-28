@@ -70,7 +70,7 @@ body {
 #mapid {
   height: 100%;
 }
-#export {
+#import, #export {
   position: absolute;
   top:190px;
   right:10px;
@@ -82,6 +82,9 @@ body {
   cursor: pointer;
   font-size:12px;
   text-decoration:none;
+}
+#import {
+  top: 220px;
 }
 footer {
   display: block;
