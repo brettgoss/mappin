@@ -71,9 +71,10 @@ body {
   height: 100%;
 }
 #import, #export {
+  display: block;
   position: absolute;
-  top:190px;
-  right:10px;
+  top:70px;
+  left:10px;
   z-index:900;
   background:white;
   color:black;
@@ -84,7 +85,7 @@ body {
   text-decoration:none;
 }
 #import {
-  top: 220px;
+  top: 100px;
 }
 footer {
   display: block;
