@@ -64,20 +64,28 @@ map.on('draw:created', function (e) {
 document.getElementById('export').onclick = function(event) {
             // Extract GeoJson from featureGroup
             var data = editableLayers.toGeoJSON();
+            var bounds = map.getBounds();
 
+            data.bbox = [[
+                bounds.getSouthWest().lng,
+                bounds.getSouthWest().lat,
+                bounds.getNorthEast().lng,
+                bounds.getNorthEast().lat
+            ]];
             // Stringify the GeoJson
-            var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+            alert(JSON.stringify(data));
+            // var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
             // Create export
-            document.getElementById('export').setAttribute('href', 'data:' + convertedData);
+            // document.getElementById('export').setAttribute('href', 'data:' + convertedData);
 
-            document.getElementById('export').setAttribute('download','data.geojson');
+            // document.getElementById('export').setAttribute('alert','data.geojson');
         event.preventDefault();
-        var newData = [];
-        for(var i = 0; i < data.features.length; i++) {
-          newData = data.features[i].geometry.coordinates;
-          $('#content').children('ul').append(`<li>${newData}</li>`);
-          console.log(newData);
-        }
+        // var newData = [];
+        // for(var i = 0; i < data.features.length; i++) {
+        //   newData = data.features[i].geometry.coordinates;
+        //   $('#content').children('ul').append(`<li>${newData}</li>`);
+        //   console.log(newData);
+        // }
     // $.ajax({
     //   method: "POST",
     //   url: "/exports",
@@ -86,5 +94,19 @@ document.getElementById('export').onclick = function(event) {
     // }).done(function (data){
       // $('#content').children('ul').append(`<li>${newData}</li>`);
     // })
+}
+document.getElementById('import').onclick = function(event) {
+
+  var paste = prompt("Paste something here.")
+  paste = JSON.parse(paste)
+
+  // Scrolls map to the position export was made.
+
+  var bnds = paste.bbox[0];
+  var southWest = L.latLng(bnds[1], bnds[0]),
+      northEast = L.latLng(bnds[3], bnds[2]),
+      bounds = L.latLngBounds(southWest, northEast);
+  map.fitBounds(bounds)
+  L.geoJson(paste).addTo(map);
 }
 })
