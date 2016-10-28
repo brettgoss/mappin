@@ -12,101 +12,114 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 var editableLayers = new L.FeatureGroup();
 map.addLayer(editableLayers);
 
-var options = {
+  var options = {
     position: 'topright',
     draw: {
-        polyline: {
-            shapeOptions: {
-                color: '#f357a1',
-                weight: 10
-            }
-        },
-        polygon: {
-            allowIntersection: false, // Restricts shapes to simple polygons
-            drawError: {
-                color: '#e1e100', // Color the shape will turn when intersects
-                message: '<strong>Oh snap!<strong> you can\'t draw that!' // Message that will show when intersect
-            },
-            shapeOptions: {
-                color: '#bada55'
-            }
-        },
-        circle: false, // Turns off this drawing tool
-        rectangle: {
-            shapeOptions: {
-                clickable: false
-            }
-        },
-        marker: {
-
+      polyline: {
+        shapeOptions: {
+          color: '#f357a1',
+          weight: 5
         }
+      },
+      polygon: {
+        allowIntersection: false, // Restricts shapes to simple polygons
+        drawError: {
+          color: '#e1e100', // Color the shape will turn when intersects
+          message: '<strong>Oh snap!<strong> you can\'t draw that!' // Message that will show when intersect
+        },
+        shapeOptions: {
+          color: '#37d2cc'
+        }
+      },
+      circle: false, // Turns off this drawing tool
+      rectangle: false,
+      // {
+      //     shapeOptions: {
+      //         clickable: false
+      //     }
+      // },
+      marker: {
+
+      }
     },
     edit: {
-        featureGroup: editableLayers, //REQUIRED!!
-        remove: true
+      featureGroup: editableLayers, //REQUIRED!!
+      remove: true
     }
-};
+  };
 
-var drawControl = new L.Control.Draw(options);
-map.addControl(drawControl);
+  var drawControl = new L.Control.Draw(options);
+  map.addControl(drawControl);
 
-map.on('draw:created', function (e) {
+  map.on('draw:created', function (e) {
     var type = e.layerType,
         layer = e.layer;
 
     if (type === 'marker') {
-        layer.bindPopup('A popup!');
+        layer.bindPopup('<input></input>');
     }
 
     editableLayers.addLayer(layer);
-});
+  });
 
-document.getElementById('export').onclick = function(event) {
-            // Extract GeoJson from featureGroup
-            var data = editableLayers.toGeoJSON();
-            var bounds = map.getBounds();
+  // Export/Import functions
 
-            data.bbox = [[
-                bounds.getSouthWest().lng,
-                bounds.getSouthWest().lat,
-                bounds.getNorthEast().lng,
-                bounds.getNorthEast().lat
-            ]];
-            // Stringify the GeoJson
-            alert(JSON.stringify(data));
-            // var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
-            // Create export
-            // document.getElementById('export').setAttribute('href', 'data:' + convertedData);
+  document.getElementById('export').onclick = function(event) {
+      // Extract GeoJson from featureGroup
+    var data = editableLayers.toGeoJSON();
+    var bounds = map.getBounds();
 
-            // document.getElementById('export').setAttribute('alert','data.geojson');
-        event.preventDefault();
-        // var newData = [];
-        // for(var i = 0; i < data.features.length; i++) {
-        //   newData = data.features[i].geometry.coordinates;
-        //   $('#content').children('ul').append(`<li>${newData}</li>`);
-        //   console.log(newData);
-        // }
-    // $.ajax({
-    //   method: "POST",
-    //   url: "/exports",
-    //   data: data,
-    //   dataType: 'json'
-    // }).done(function (data){
-      // $('#content').children('ul').append(`<li>${newData}</li>`);
-    // })
-}
-document.getElementById('import').onclick = function(event) {
+    data.bbox = [[
+      bounds.getSouthWest().lng,
+      bounds.getSouthWest().lat,
+      bounds.getNorthEast().lng,
+      bounds.getNorthEast().lat
+    ]];
+    // Stringify the GeoJson
+    alert(JSON.stringify(data));
+    // var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+    // Create export
+    // document.getElementById('export').setAttribute('href', 'data:' + convertedData);
+    // document.getElementById('export').setAttribute('download','data.geojson');
+    event.preventDefault();
+  }
+  document.getElementById('import').onclick = function(event) {
 
-  var paste = prompt("Paste something here.")
-  paste = JSON.parse(paste)
+    var paste = prompt("Paste something here.")
+    paste = JSON.parse(paste)
 
-  // Scrolls map to the position export was made.
+    // Scrolls map to the position export was made.
 
-  var bnds = paste.bbox[0];
-  var southWest = L.latLng(bnds[1], bnds[0]),
-      northEast = L.latLng(bnds[3], bnds[2]),
-      bounds = L.latLngBounds(southWest, northEast);
-  map.fitBounds(bounds)
-  L.geoJson(paste).addTo(map);
-}
+    var bnds = paste.bbox[0];
+    var southWest = L.latLng(bnds[1], bnds[0]),
+        northEast = L.latLng(bnds[3], bnds[2]),
+        bounds = L.latLngBounds(southWest, northEast);
+    map.fitBounds(bounds)
+    L.geoJson(paste).addTo(map);
+  }
 })
+
+
+
+// var pasteLayer = L.geoJson(paste)
+// editableLayers.addLayer(pasteLayer)
+
+
+
+// var newData = [];
+// for(var i = 0; i < data.features.length; i++) {
+//   newData = data.features[i].geometry.coordinates;
+//   $('#content').children('ul').append(`<li>${newData}</li>`);
+//   console.log(newData);
+// }
+
+
+
+// $.ajax({
+//   method: "POST",
+//   url: "/exports",
+//   data: data,
+//   dataType: 'json'
+// }).done(function (data){
+// $('#content').children('ul').append(`<li>${newData}</li>`);
+// })
