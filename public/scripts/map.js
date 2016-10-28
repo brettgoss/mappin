@@ -59,3 +59,15 @@ map.on('draw:created', function (e) {
 
     editableLayers.addLayer(layer);
 });
+
+document.getElementById('export').onclick = function(e) {
+            // Extract GeoJson from featureGroup
+            var data = editableLayers.toGeoJSON();
+
+            // Stringify the GeoJson
+            var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+
+            // Create export
+            document.getElementById('export').setAttribute('href', 'data:' + convertedData);
+            // document.getElementById('export').setAttribute('download','data.geojson');
+        }
