@@ -5,7 +5,7 @@ ABC incorporated is brought to you by Aileen O'Brien, Brett Goss, & Cecia Poders
 # MAPPIN™ #
 MAPPIN is your new favorite tool for creating and saving custom maps!
 
-BENEFITS:
+_BENEFITS:_
 
 View custom lists curated by our allstar clients and developers!
 Authenticated Users have the ability to create custom maps for whatever they choose! Eateries, sites, landmarks, parks, schools, businesses, friends, the skies the limit! (Or the sea, depending how you map.)
@@ -19,7 +19,11 @@ _Never Lost, Merely Mappin._
 
 # Resources #
 MAPPIN is based on Leaflet! Leaflet is the leading open-source JavaScript library. Thanks Leaflet!
+
 User Stories & Priorities: https://trello.com/b/2OaoC6V5/abc-inc-midterm
+
 ERD Example: https://www.draw.io/#LABC%20inc_Mappin%20ERD
+
 Leaflet: http://leafletjs.com/
+
 Leaflet Source Code: https://github.com/Leaflet/Leaflet
