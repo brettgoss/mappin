@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "local": "./node_modules/.bin/nodemon --ignore public/",
+    "knex": "./node_modules/.bin/knex"
   },
   "repository": {
     "type": "git",
@@ -18,10 +20,14 @@
   },
   "homepage": "https://github.com/brettgoss/abc-map#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "jquery": "^3.1.1"
+    "jquery": "^3.1.1",
+    "knex": "^0.12.6",
+    "pg": "^6.1.0",
+    "nodemon": "^1.9.2",
+    "dotenv": "^2.0.0"
   },
   "devDependencies": {
-    "dotenv": "^2.0.0"
   }
 }
