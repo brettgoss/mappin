@@ -1,5 +1,5 @@
 $font-stack: 'Roboto Condensed', sans-serif;
-$navbar-height: 52px;
+$navbar-height: 60px;
 $footer-height: 40px;
 
 html {
@@ -12,10 +12,10 @@ body {
   font-family: $font-stack;
   // margin-top: 60px;
   overflow: hidden;
-  padding-top: $navbar-height;
+  // padding-top: $navbar-height;
 }
 #main-container {
-  // top: $navbar-height;
+  top: $navbar-height;
   left: 0;
   width: 38.2%;
   position: absolute;
