@@ -1,6 +1,7 @@
 $(function() {
 // Loads map with default startingplace
 var map = L.map('mapid').setView([48.457, -123.365], 12);
+
 //map tile
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -33,14 +34,7 @@ map.addLayer(editableLayers);
       },
       circle: false, // Turns off this drawing tool
       rectangle: false,
-      // {
-      //     shapeOptions: {
-      //         clickable: false
-      //     }
-      // },
-      marker: {
-
-      }
+      marker: {}
     },
     edit: {
       featureGroup: editableLayers, //REQUIRED!!
@@ -56,16 +50,32 @@ map.addLayer(editableLayers);
         layer = e.layer;
 
     if (type === 'marker') {
-        layer.bindPopup('<input></input>');
+
     }
 
     editableLayers.addLayer(layer);
   });
 
+  // Map Title Function
+
+  $('#mapname').on('submit', function(event) {
+
+    event.preventDefault()
+    var mapName = $('#mapname').children('input').val();
+    $('.mapstate').attr({'data-title':mapName});
+    $('.mapstate').attr({'data-user':'Brett'});
+    var mapState = document.getElementsByClassName('mapstate')[0];
+    var mapTitle = mapState.dataset.title;
+    $('.cur-title').text(mapTitle);
+
+  })
+
+
   // Export/Import functions
 
   document.getElementById('export').onclick = function(event) {
-      // Extract GeoJson from featureGroup
+    event.preventDefault();
+    // Extract GeoJson from featureGroup
     var data = editableLayers.toGeoJSON();
     var bounds = map.getBounds();
 
@@ -76,15 +86,26 @@ map.addLayer(editableLayers);
       bounds.getNorthEast().lat
     ]];
     // Stringify the GeoJson
-    alert(JSON.stringify(data));
-    // var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
-    // Create export
-    // document.getElementById('export').setAttribute('href', 'data:' + convertedData);
-    // document.getElementById('export').setAttribute('download','data.geojson');
-    event.preventDefault();
-  }
-  document.getElementById('import').onclick = function(event) {
+    var stringg = JSON.stringify(data);
+    $('.mapstate').attr({'data-json':stringg});
 
+    var mapState = $('.mapstate').data('json')
+    var points = mapState.features
+    console.log(points)
+
+    for(var i = 0; i < points.length; i++) {
+      var props = (points[i].properties)
+      var name = (props.name = "Point " + (i+1))
+      $('.point').append(`<li>${name}`)
+      console.log(name)
+    }
+
+
+
+  }
+
+
+  document.getElementById('import').onclick = function(event) {
     var paste = prompt("Paste something here.")
     paste = JSON.parse(paste)
 
@@ -96,8 +117,11 @@ map.addLayer(editableLayers);
         bounds = L.latLngBounds(southWest, northEast);
     map.fitBounds(bounds)
     L.geoJson(paste).addTo(map);
+
   }
+  // editableLayers.geoJson(geojsonFeature)
 })
+
 
 
 

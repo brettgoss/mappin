@@ -3,7 +3,11 @@
   "features":[
   {
     "type":"Feature",
-    "properties":{},
+    "properties":
+    {
+      "name": "Brett's House",
+      "desc": "Coolest place in Victoria"
+    },
     "geometry":
     {
       "type":"Point",

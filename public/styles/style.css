@@ -34,7 +34,6 @@ body {
 
 .navbar-brand {
   margin: 5px;
-  text-shadow: 1px 1px 1px #0e4358;
   font-size: 3.5em;
   color: black; }
 
@@ -69,7 +68,7 @@ body {
   text-decoration: none; }
 
 #import {
-  top: 100px; }
+  top: 105px; }
 
 footer {
   border-top: 1.5px solid #eee;
