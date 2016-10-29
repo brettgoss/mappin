@@ -1,0 +1,14 @@
+footer {
+  border-top: 1.5px solid #eee;
+  height: $footer-height;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  background: white;
+}
+#credit {
+  margin: 10px auto;
+  color: #343434;
+  padding-right: 5px;
+  float: right;
+}

@@ -1,0 +1,51 @@
+.navbar-fixed-top {
+  height: $navbar-height;
+  // background-color: #eee;
+}
+.navbar .container-fluid {
+  height: $navbar-height;
+
+  // padding: 5px 10px;
+  // margin-top: 10px;
+  border-bottom: 1.5px solid #696969;
+}
+.navbar-brand {
+  margin: 5px;
+  text-shadow: 1px 1px 1px #0e4358;
+  font-size: 3.5em;
+  color: black;
+}
+
+
+// .navbar {
+//   position: fixed;
+//   height: $navbar-height;
+//   top: 0;
+//   z-index: 999;
+//   background: white;
+//   width: 100%;
+//
+// }
+// .navbar .header {
+//   font-size: 200%;
+//   float: left;
+//   width: 30%;
+//   padding: 10px;
+// }
+.navbar .login {
+// float: right;
+// margin: auto 10px;
+}
+.navbar .login button {
+  margin-right: 10px;
+  height: 3em;
+//   display: inline-block;
+//   background: #eee;
+//   width: auto;
+//   padding: 1em;
+}
+// .navbar a {
+//   height: 100%;
+//   padding: 10px;
+//   color: #000;
+// }

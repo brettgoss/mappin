@@ -1,48 +1,13 @@
 html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-body {
-  font-family: 'Roboto Condensed', sans-serif;
-  margin-top: 60px;
-  overflow: hidden;
-}
-#navbar {
-  position: fixed;
-  height: 60px;
-  top: 0;
-  border-bottom: 1.5px solid #eee;
-  z-index: 999;
-  background: white;
-  width: 100%;
-}
-#navbar .header {
-  font-size: 200%;
-  float: left;
-  width: 30%;
-  padding: 10px;
-}
-#navbar .login {
-  float: right;
-  margin: 5px 10px;
-}
-#navbar .login div {
-  display: inline-block;
-  background: #eee;
-  height: 3em;
-  width: auto;
-  padding: 1em;
-  margin-left: 5px;
-}
-#navbar a {
-  height: 100%;
-  padding: 10px;
-  color: #000;
-}
+  box-sizing: border-box; }
 
-/* Page Content */
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  overflow: hidden; }
+
 #main-container {
   top: 60px;
   left: 0;
@@ -51,53 +16,71 @@ body {
   height: 100%;
   overflow: scroll;
   padding: 10px;
-  background: #eee;
-}
-#content {
-  height: 70%;
-  font-size: 100%;
-}
-#filler {
-  height: 40%;
-}
+  background: #eee; }
+
 #map-container {
   top: 60px;
   width: 61.8%;
   right: 0px;
   position: fixed;
-  bottom: 40px;
-}
+  bottom: 40px; }
+
+.navbar-fixed-top {
+  height: 60px; }
+
+.navbar .container-fluid {
+  height: 60px;
+  border-bottom: 1.5px solid #696969; }
+
+.navbar-brand {
+  margin: 5px;
+  text-shadow: 1px 1px 1px #0e4358;
+  font-size: 3.5em;
+  color: black; }
+
+.navbar .login button {
+  margin-right: 10px;
+  height: 3em; }
+
+/* Page Content */
+#content {
+  height: 70%;
+  font-size: 100%; }
+  #content .user {
+    color: #696969;
+    float: right; }
+
+#filler {
+  height: 40%; }
+
 #mapid {
-  height: 100%;
-}
+  height: 100%; }
+
 #import, #export {
-  display: block;
   position: absolute;
-  top:70px;
-  left:10px;
-  z-index:900;
-  background:white;
-  color:black;
-  padding:6px;
-  border-radius:4px;
+  top: 70px;
+  left: 10px;
+  z-index: 900;
+  background: white;
+  padding: 6px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size:12px;
-  text-decoration:none;
-}
+  font-size: 12px;
+  text-decoration: none; }
+
 #import {
-  top: 100px;
-}
+  top: 100px; }
+
 footer {
-  display: block;
   border-top: 1.5px solid #eee;
   height: 40px;
   width: 100%;
   bottom: 0;
   position: fixed;
-  background: white;
-}
-footer p {
+  background: white; }
+
+#credit {
   margin: 10px auto;
+  color: #343434;
   padding-right: 5px;
-  float: right;
-}
+  float: right; }
