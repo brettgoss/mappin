@@ -6,7 +6,7 @@ var knex = require('knex')({
     host : 'localhost',
     user : 'labber',
     password : 'labber',
-    database : 'midterm'
+    database : 'mappin_db'
   }
 });
 

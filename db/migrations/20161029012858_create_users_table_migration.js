@@ -1,4 +1,3 @@
-//roll changes forwards
 exports.up = function(knex, Promise) {
     knex.schema.createTable('users', function (table) {
       table.increments();

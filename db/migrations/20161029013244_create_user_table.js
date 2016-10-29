@@ -1,11 +1,8 @@
-//roll changes forwards
 exports.up = function(knex, Promise) {
-    knex.schema.createTable('users', function (table) {
+    return knex.schema.createTable('users', function (table) {
       table.increments();
       table.string('username');
     })
-  return Promise.all([
-  ])
 };
 
 //roll changes backwards.
