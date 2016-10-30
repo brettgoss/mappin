@@ -1,13 +1,11 @@
 // Update with your config settings.
-
+DB_URI = process.env.DATABASE_URL;
 module.exports = {
 
   development: {
       client: 'postgresql',
     connection: {
-      database: 'mappin_db',
-      user:     'labber',
-      password: 'labber'
+      url: DB_URI
     },
     migrations: {
       directory: './db/migrations',
