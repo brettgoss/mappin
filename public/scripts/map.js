@@ -87,18 +87,27 @@ map.addLayer(editableLayers);
     ]];
     // Stringify the GeoJson
     var stringg = JSON.stringify(data);
+    $('.mapstate').attr({'data-title':'Default'});
+    $('.mapstate').attr({'data-user':'Anon'});
     $('.mapstate').attr({'data-json':stringg});
 
     var mapState = $('.mapstate').data('json')
     var points = mapState.features
-    console.log(points)
+    // console.log(points)
 
     for(var i = 0; i < points.length; i++) {
       var props = (points[i].properties)
       var name = (props.name = "Point " + (i+1))
+      var desc = "Description of point"
+
+
       $('.point').append(`<li>${name}`)
-      console.log(name)
+      // $('.point').append(`<li>${desc}`)
+      // console.log(name)
     }
+    $('.point').children('li').append(`<ul class="info"><li>${desc}`)
+
+
 
 
 
