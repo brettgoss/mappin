@@ -1,17 +1,34 @@
 "use strict";
 require('dotenv').config();
+const PORT        = process.env.PORT || 8080;
+const ENV         = process.env.ENV || "development";
 const express     = require("express");
 const app         = express();
 const bodyParser  = require("body-parser");
 const pg          = require('pg');
-const ENV         = process.env.ENV || "development";
+
+const morgan      = require('morgan');
+const knexConfig  = require("./knexfile");
+const knex        = require("knex")(knexConfig[ENV]);
+const knexLogger  = require('knex-logger');
+
+const usersRoutes = require("./routes/users");
+const mapsRoutes  = require("./routes/maps")
+const favMaps     = require("./routes/favmaps")
 
 
-app.set('port', (process.env.PORT || 8080));
+app.set('port', (PORT));
 app.use(express.static("public"));
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan('dev'));
+app.use(knexLogger(knex));
 
 // const data = {};
+app.use("/users", usersRoutes(knex));
+app.use("/maps", mapsRoutes(knex));
+app.use("/favmaps", favMaps(knex));
+
 
 
 app.post("/exports", (req, res) => {
