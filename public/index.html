@@ -32,8 +32,18 @@
        <a class="navbar-brand" href="#">MAPPIN.</a>
       </div>
       <ul class="login navbar-right">
-        <button type="button" class="btn btn-default navbar-btn">Sign in</button>
-        <button type="button" class="btn btn-default navbar-btn">Register</button>
+        <div class="dropdown">
+          <button class="btn btn-default navbar-btn" type="button" id="registerdropform" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Register</button>
+            <div class="dropdown-menu" style="padding:17px;">
+              <form method="post" action="/users/register" class="form" id="formLogin">
+                <input name="username" id="username" type="text" placeholder="Username">
+                <input name="password" id="password" type="password" placeholder="Password"><br>
+                <button type="submit" id="btnLogin" class="btn btn-default">Sign up!
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- <button type="button" class="btn btn-default navbar-btn">Sign in</button> -->
       </ul>
     </div>
   </nav>

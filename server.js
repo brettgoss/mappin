@@ -30,7 +30,6 @@ app.use("/maps", mapsRoutes(knex));
 app.use("/favmaps", favMaps(knex));
 
 
-
 app.post("/exports", (req, res) => {
   // $('#content').prepend(req.body);
   // var mapId = // the map id;
