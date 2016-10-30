@@ -12,7 +12,16 @@ module.exports = (knex) => {
       .then((results) => {
         res.json(results);
     });
-  });
+  })
+  router.post("/export", (req, res) => {
+    knex('maps')
+      .insert(req.body)
+      .then(() => {
+        console.log(req.body)
+        res.status(200).send(req.body)
+      })
+
+  })
 
   return router;
 }

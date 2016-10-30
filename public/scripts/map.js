@@ -98,9 +98,9 @@ map.addLayer(editableLayers);
     for(var i = 0; i < points.length; i++) {
       var props = (points[i].properties)
       var name = (props.name = "Point " + (i+1))
+
+
       var desc = "Description of point"
-
-
       $('.point').append(`<li>${name}`)
       // $('.point').append(`<li>${desc}`)
       // console.log(name)
