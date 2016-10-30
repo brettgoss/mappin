@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
   <title>MAPPIN | Home</title>
   <!-- Meta Tags -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,22 +18,18 @@
   <script type="text/javascript" src="/vendor/jquery.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <!-- External Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
-
   <!--Add draw plugin -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@0.4.1/dist/leaflet.draw.css" />
   <script src="https://unpkg.com/leaflet-draw@0.4.1/dist/leaflet.draw.js"></script>
-
-
-
 </head>
 <body>
   <nav class="navbar navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-       <a class="navbar-brand" href="#">MAPPIN</a>
+       <a class="navbar-brand" href="#">MAPPIN.</a>
       </div>
       <ul class="login navbar-right">
         <button type="button" class="btn btn-default navbar-btn">Sign in</button>
@@ -50,6 +45,17 @@
         <p>We could probably use this built in styling for import confirmation.</p>
       </div>
       <div id="content">
+        <h1>Current Map</h1>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <span class="title cur-title">Default Map Name</span>
+            <span class="user">&#64;Aileen</span>
+            <span class="mapstate">
+              <ul class="point"></ul>
+            </span>
+          </li>
+        </ul>
+
         <h1>Here's da lists of maps</h1>
         <ul class="list-group">
           <li class="list-group-item">
@@ -64,6 +70,7 @@
           <li class="list-group-item">
             <span class="title">Lame Map Of Lame Places</span>
             <span class="user">&#64;Cecia</span>
+          </li>
         </ul>
       </div>
       <div id="filler">
@@ -71,6 +78,11 @@
       </div>
     </section>
     <section id="map-container">
+      <form id="mapname">
+        <input placeholder="Map Name"></input>
+        <button type="submit">Save</button>
+      </form>
+
       <div id="export">Export</div>
       <div id="import">Import</div>
       <div id="mapid"></div>
