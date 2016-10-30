@@ -74,6 +74,8 @@ map.addLayer(editableLayers);
   // Export/Import functions
 
   document.getElementById('export').onclick = function(event) {
+
+
     event.preventDefault();
     // Extract GeoJson from featureGroup
     var data = editableLayers.toGeoJSON();
@@ -86,12 +88,15 @@ map.addLayer(editableLayers);
       bounds.getNorthEast().lat
     ]];
     // Stringify the GeoJson
-    var stringg = JSON.stringify(data);
+    var mapState = JSON.stringify(data);
     $('.mapstate').attr({'data-title':'Default'});
-    $('.mapstate').attr({'data-user':'Anon'});
-    $('.mapstate').attr({'data-json':stringg});
+    $('.mapstate').attr({'data-user':'1'});
+    $('.mapstate').attr({'data-json':mapState});
 
-    var mapState = $('.mapstate').data('json')
+    // var mapState = $('.mapstate').data('json')
+    var mapName = $('.mapstate').data('title')
+    var userName = $('.mapstate').data('user')
+
     var points = mapState.features
     // console.log(points)
 
@@ -106,8 +111,16 @@ map.addLayer(editableLayers);
       // console.log(name)
     }
     $('.point').children('li').append(`<ul class="info"><li>${desc}`)
+    var encodedMapState = encodeURIComponent(mapState);
 
-
+    $.ajax({
+      method: "POST",
+      url: "/maps/export",
+      data: "user_id=" + userName + "&mapname=" + mapName + "&fc_mapstate=" + encodedMapState,
+      dataType: 'json'
+    }).done(function (data){
+      console.log(data)
+    })
 
 
 
@@ -145,14 +158,3 @@ map.addLayer(editableLayers);
 //   $('#content').children('ul').append(`<li>${newData}</li>`);
 //   console.log(newData);
 // }
-
-
-
-// $.ajax({
-//   method: "POST",
-//   url: "/exports",
-//   data: data,
-//   dataType: 'json'
-// }).done(function (data){
-// $('#content').children('ul').append(`<li>${newData}</li>`);
-// })
