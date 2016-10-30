@@ -29,19 +29,6 @@ app.use("/users", usersRoutes(knex));
 app.use("/maps", mapsRoutes(knex));
 app.use("/favmaps", favMaps(knex));
 
-
-app.post("/exports", (req, res) => {
-  // $('#content').prepend(req.body);
-  // var mapId = // the map id;
-  // var mapJson = // the map json string
-
-  // data[mapId] = mapJson;
-})
-
-app.get("/exports", (req, res) => {
-  // var mapId = // the map id
-  // var mapJson = data[mapId];
-})
 app.listen(app.get('port'), () => {
   console.log("Example app listening on port " + app.get('port'));
 });

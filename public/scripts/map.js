@@ -90,14 +90,14 @@ map.addLayer(editableLayers);
     // Stringify the GeoJson
     var mapState = JSON.stringify(data);
     $('.mapstate').attr({'data-title':'Default'});
-    $('.mapstate').attr({'data-user':'1'});
+    $('.mapstate').attr({'data-user':'17'});
     $('.mapstate').attr({'data-json':mapState});
 
-    // var mapState = $('.mapstate').data('json')
+    var mapS = $('.mapstate').data('json')
     var mapName = $('.mapstate').data('title')
     var userName = $('.mapstate').data('user')
 
-    var points = mapState.features
+    var points = mapS.features
     // console.log(points)
 
     for(var i = 0; i < points.length; i++) {

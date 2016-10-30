@@ -31,20 +31,48 @@
       <div class="navbar-header">
        <a class="navbar-brand" href="#">MAPPIN.</a>
       </div>
-      <ul class="login navbar-right">
-        <div class="dropdown">
-          <button class="btn btn-default navbar-btn" type="button" id="registerdropform" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Register</button>
-            <div class="dropdown-menu" style="padding:17px;">
-              <form method="post" action="/users/register" class="form" id="formLogin">
-                <input name="username" id="username" type="text" placeholder="Username">
-                <input name="password" id="password" type="password" placeholder="Password"><br>
+      <div id="userfunc">
+
+        <div class="dropdown navbar-right">
+          <button class="btn btn-default dropdown-toggle" type="button" id="formReg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Register
+            <span class="caret"></span>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="formReg">
+              <form method="post" action="/users/register" class="form-horizontal" id="formReg">
+                <div class="form-group">
+                  <label for="register" class="col-sm-4 control-label">Register</label>
+                  <div class="col-sm-12">
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Username">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                  </div>
+                </div>
                 <button type="submit" id="btnLogin" class="btn btn-default">Sign up!
+                <!-- <input name="password" id="password" type="password" placeholder="Password"><br> -->
               </form>
             </div>
-          </div>
+        </div>
+        <div class="dropdown navbar-right">
+          <button class="btn btn-default dropdown-toggle" type="button" id="formLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Login
+            <span class="caret"></span>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="formLogin">
+              <form method="post" action="/users/login" class="form-horizontal" id="formLogin">
+                <div class="form-group">
+                  <label for="register" class="col-sm-4 control-label">Login!</label>
+                  <div class="col-sm-12">
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Username">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                  </div>
+                </div>
+                <button type="submit" id="btnLogin" class="btn btn-default">Sign In!
+                <!-- <input name="password" id="password" type="password" placeholder="Password"><br> -->
+              </form>
+            </div>
         </div>
         <!-- <button type="button" class="btn btn-default navbar-btn">Sign in</button> -->
-      </ul>
+      </div>
     </div>
   </nav>
   <content>
