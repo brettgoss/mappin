@@ -1,12 +1,10 @@
 // Update with your config settings.
-DB_URI = process.env.DATABASE_URL;
+
 module.exports = {
 
   development: {
       client: 'postgresql',
-    connection: {
-      url: DB_URI
-    },
+    connection: process.env.DATABASE_URL,
     migrations: {
       directory: './db/migrations',
       tableName: 'knex_migrations'
