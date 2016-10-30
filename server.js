@@ -29,10 +29,6 @@ app.use("/users", usersRoutes(knex));
 app.use("/maps", mapsRoutes(knex));
 app.use("/favmaps", favMaps(knex));
 
-app.post('/register', function req, res {
-  let username = req.body.username
-  let password = req.body.password
-})
 
 app.post("/exports", (req, res) => {
   // $('#content').prepend(req.body);
