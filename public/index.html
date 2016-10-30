@@ -45,10 +45,14 @@
         <p>We could probably use this built in styling for import confirmation.</p>
       </div>
       <div id="content">
-        <h1>Current Map</h1>
+        <h1>Current Map:</h1>
+        <form id="mapname">
+          <input type="text" class="form-control" placeholder="NAME YOUR MAP">
+        </form>
         <ul class="list-group">
           <li class="list-group-item">
-            <span class="title cur-title">Default Map Name</span>
+
+            <span class="title cur-title">Map Name</span>
             <span class="user">&#64;Aileen</span>
             <span class="mapstate">
               <ul class="point"></ul>
@@ -78,10 +82,6 @@
       </div>
     </section>
     <section id="map-container">
-      <form id="mapname">
-        <input placeholder="Map Name"></input>
-        <button type="submit">Save</button>
-      </form>
 
       <div id="export">Export</div>
       <div id="import">Import</div>
