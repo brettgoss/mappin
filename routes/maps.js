@@ -19,7 +19,7 @@ module.exports = (knex) => {
     knex('maps')
       .insert(req.body)
       .then(() => {
-        console.log(req.body)
+        // console.log(req.body)
         res.status(200).send(req.body)
       })
 

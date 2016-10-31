@@ -75,7 +75,7 @@ map.addLayer(editableLayers);
   $('#saveMap').on('submit', function(event) {
 
     event.preventDefault();
-    console.log('testing');
+    // console.log('testing');
     var data = editableLayers.toGeoJSON();
     var bounds = map.getBounds();
 
@@ -106,14 +106,13 @@ map.addLayer(editableLayers);
       data: "user_id=" + userName + "&mapname=" + mapName + "&fc_mapstate=" + encodedMapState,
       dataType: 'json'
     }).done(function (data){
-      console.log(data)
+      // console.log(data)
     })
 
   })
 
   function loginCheck(){
     var id = $('#metaspan').data('id')
-    console.log(id)
     if(id > 0) {
       console.log("user is logged in")
 
@@ -127,42 +126,24 @@ map.addLayer(editableLayers);
             var mapname = data[i].mapname;
             var mapstate = data[i].fc_mapstate;
             var jsonstring = JSON.stringify(mapstate)
-            // var mapid = data[i].id;
-            console.log(jsonstring)
 
             $('#mymaps').append(`<a href="#" data-mapstate=${jsonstring} class="myMap list-group-item">${mapname}`)
-            // $('.myMap').attr({'data-title':mapname});
-            // $('.myMap').attr({'data-user':userid});
-
-
           }
         }
-        // $('.myMap').attr({'data-id':mapid});
-        // $('.myMap').append(`<button clas="loadMap">Click Me`)
         $('.myMap').on('click', function (event){
-          // alert("Hello!")
           event.preventDefault();
-          console.log("this", this)
           var mapstate = $(this).data('mapstate')
-          // console.log(mapID)
           loadMap(mapstate)
-          // $('#loadMap').append("<h1>Test</h1>")
-          console.log("test")
         })
       })
     }
   }
   loginCheck()
   $('.myMap').on('click', function (event){
-    // alert("Hello!")
     event.preventDefault();
     var mapstate = $(this).data('mapstate')
-    // console.log(mapID)
     loadMap(mapstate)
-    // $('#loadMap').append("<h1>Test</h1>")
   })
-  // var loadMap = document.getElementsByClassName("loadMap")
-  // loadMap.addEventListener('click',  (event) {
 
 
 
@@ -176,105 +157,4 @@ map.addLayer(editableLayers);
       L.geoJson(mapName).addTo(map);
 
     }
-
-
-
-
-
-
-
-
-  // Export/Import functions
-  // document.getElementById('export').onclick = function(event) {
-  //
-  //
-  //   event.preventDefault();
-  //   // Extract GeoJson from featureGroup
-  //   var data = editableLayers.toGeoJSON();
-  //   var bounds = map.getBounds();
-  //
-  //   data.bbox = [[
-  //     bounds.getSouthWest().lng,
-  //     bounds.getSouthWest().lat,
-  //     bounds.getNorthEast().lng,
-  //     bounds.getNorthEast().lat
-  //   ]];
-  //   // Stringify the GeoJson
-  //   var jsonStr = JSON.stringify(data);
-  //   var title   = $('.cur-title').text()
-  //   var user    = $('.user').text()
-  //   // console.log(user)
-  //
-  //   $('.mapstate').attr({'data-title':title});
-  //   $('.mapstate').attr({'data-user':'1'});
-  //   $('.mapstate').attr({'data-json':jsonStr});
-  //
-  //   var mapState = $('.mapstate').data('json')
-  //   var mapName = $('.mapstate').data('title')
-  //   var userName = $('.mapstate').data('user')
-  //
-  //   var encodedMapState = encodeURIComponent(jsonStr);
-  //
-  //   // $.ajax({
-  //   //   method: "POST",
-  //   //   url: "/maps/export",
-  //   //   data: "user_id=" + userName + "&mapname=" + mapName + "&fc_mapstate=" + encodedMapState,
-  //   //   dataType: 'json'
-  //   // }).done(function (data){
-  //   //   console.log(data)
-  //   // })
-  //
-  //
-  //
-  // }
-
-
-  // document.getElementById('import').onclick = function(event) {
-  //   var paste = prompt("Paste something here.")
-  //   paste = JSON.parse(paste)
-  //
-  //   // Scrolls map to the position export was made.
-  //
-  //   var bnds = paste.bbox[0];
-  //   var southWest = L.latLng(bnds[1], bnds[0]),
-  //       northEast = L.latLng(bnds[3], bnds[2]),
-  //       bounds = L.latLngBounds(southWest, northEast);
-  //   map.fitBounds(bounds)
-  //   L.geoJson(paste).addTo(map);
-  //
-  // }
-  // editableLayers.geoJson(geojsonFeature)
 })
-
-
-
-
-// var pasteLayer = L.geoJson(paste)
-// editableLayers.addLayer(pasteLayer)
-
-
-
-// var newData = [];
-// for(var i = 0; i < data.features.length; i++) {
-//   newData = data.features[i].geometry.coordinates;
-//   $('#content').children('ul').append(`<li>${newData}</li>`);
-//   console.log(newData);
-// }
-
-
-
-
-    // var points = mapS.features
-    // console.log(points)
-
-    // for(var i = 0; i < points.length; i++) {
-    //   var props = (points[i].properties)
-    //   var name = (props.name = "Point " + (i+1))
-    //
-    //
-    //   var desc = "Description of point"
-    //   $('.point').append(`<li>${name}`)
-    //   // $('.point').append(`<li>${desc}`)
-    //   // console.log(name)
-    // }
-    // $('.point').children('li').append(`<ul class="info"><li>${desc}`)
