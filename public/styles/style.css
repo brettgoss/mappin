@@ -49,14 +49,15 @@ body {
 
 /* Page Content */
 #content {
-  height: 70%;
   font-size: 100%; }
   #content .user {
     color: #696969;
-    float: right; }
+    float: right;
+    clear: both; }
 
 #filler {
-  height: 40%; }
+  margin-bottom: 50px;
+  height: 60%; }
 
 #mapid {
   height: 100%; }

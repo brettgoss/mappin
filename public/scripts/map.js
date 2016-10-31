@@ -1,4 +1,5 @@
 $(function() {
+
 // Loads map with default startingplace
 var map = L.map('mapid').setView([48.457, -123.365], 12);
 
@@ -57,12 +58,15 @@ map.addLayer(editableLayers);
   });
 
   // Map Title Function
-
   $('#mapname').on('submit', function(event) {
 
     event.preventDefault()
     var mapName = $('#mapname').children('input').val();
+    var user = $('#metaspan').data('user');
+
     $('.mapstate').attr({'data-title':mapName});
+    $('.mapstate').attr({'data-user':user});
+
     var mapState = document.getElementsByClassName('mapstate')[0];
     var mapTitle = mapState.dataset.title;
     $('.cur-title').text(mapTitle);
@@ -84,10 +88,10 @@ map.addLayer(editableLayers);
 
     var jsonStr = JSON.stringify(data);
     var title   = $('.cur-title').text();
-    var user    = $('.user').text();
+    var userid  = $('#metaspan').data('id')
 
     $('.mapstate').attr({'data-title':title});
-    $('.mapstate').attr({'data-user':'1'});
+    $('.mapstate').attr({'data-user':userid});
     $('.mapstate').attr({'data-json':jsonStr});
 
     var mapState = $('.mapstate').data('json');
@@ -107,9 +111,64 @@ map.addLayer(editableLayers);
 
   })
 
+  function loginCheck(){
+    var id = $('#metaspan').data('id')
+    console.log(id)
+    if(id > 0) {
+      console.log("user is logged in")
+
+      $.ajax({
+        type: 'GET',
+        url: "/maps"
+      })
+      .done((data) => {
+        for(var i = 0; i < data.length; i++){
+          if(data[i].user_id == id){
+            var mapname = data[i].mapname;
+            var mapstate = data[i].fc_mapstate;
+            var jsonstring = JSON.stringify(mapstate)
+            // var mapid = data[i].id;
+            console.log(jsonstring)
+
+            $('#mymaps').append(`<a href="#" data-mapstate=${jsonstring} class="myMap list-group-item">${mapname}`)
+            // $('.myMap').attr({'data-title':mapname});
+            // $('.myMap').attr({'data-user':userid});
+
+
+          }
+        }
+        // $('.myMap').attr({'data-id':mapid});
+        // $('.myMap').append(`<button clas="loadMap">Click Me`)
+        $('.myMap').on('click', function (event){
+          // alert("Hello!")
+          event.preventDefault();
+          console.log("this", this)
+          var mapstate = $(this).data('mapstate')
+          // console.log(mapID)
+          loadMap(mapstate)
+          // $('#loadMap').append("<h1>Test</h1>")
+          console.log("test")
+        })
+      })
+    }
+  }
+  loginCheck()
+
+  // var loadMap = document.getElementsByClassName("loadMap")
+  // loadMap.addEventListener('click',  (event) {
 
 
 
+  function loadMap(mapName){
+
+      var bnds = mapName.bbox[0];
+      var southWest = L.latLng(bnds[1], bnds[0]),
+          northEast = L.latLng(bnds[3], bnds[2]),
+          bounds = L.latLngBounds(southWest, northEast);
+      map.fitBounds(bounds)
+      L.geoJson(mapName).addTo(map);
+
+    }
 
 
 
