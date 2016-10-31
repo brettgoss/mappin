@@ -127,7 +127,7 @@ map.addLayer(editableLayers);
             var mapstate = data[i].fc_mapstate;
             var jsonstring = JSON.stringify(mapstate)
 
-            $('#mymaps').append(`<a href="#" data-mapstate=${jsonstring} class="myMap list-group-item">${mapname}`)
+            $('#mymaps').append(`<a href='#' data-mapstate=${jsonstring} class='myMap list-group-item'>${mapname}`)
           }
         }
         $('.myMap').on('click', function (event){
