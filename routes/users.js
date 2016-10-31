@@ -9,7 +9,7 @@ module.exports = (knex) => {
 
   router.get("/", (req, res) => {
     knex
-      .select("*")
+      .select("username")
       .from("users")
       .then((results) => {
         res.json(results);
