@@ -153,7 +153,14 @@ map.addLayer(editableLayers);
     }
   }
   loginCheck()
-
+  $('.myMap').on('click', function (event){
+    // alert("Hello!")
+    event.preventDefault();
+    var mapstate = $(this).data('mapstate')
+    // console.log(mapID)
+    loadMap(mapstate)
+    // $('#loadMap').append("<h1>Test</h1>")
+  })
   // var loadMap = document.getElementsByClassName("loadMap")
   // loadMap.addEventListener('click',  (event) {
 
@@ -222,20 +229,20 @@ map.addLayer(editableLayers);
   // }
 
 
-  document.getElementById('import').onclick = function(event) {
-    var paste = prompt("Paste something here.")
-    paste = JSON.parse(paste)
-
-    // Scrolls map to the position export was made.
-
-    var bnds = paste.bbox[0];
-    var southWest = L.latLng(bnds[1], bnds[0]),
-        northEast = L.latLng(bnds[3], bnds[2]),
-        bounds = L.latLngBounds(southWest, northEast);
-    map.fitBounds(bounds)
-    L.geoJson(paste).addTo(map);
-
-  }
+  // document.getElementById('import').onclick = function(event) {
+  //   var paste = prompt("Paste something here.")
+  //   paste = JSON.parse(paste)
+  //
+  //   // Scrolls map to the position export was made.
+  //
+  //   var bnds = paste.bbox[0];
+  //   var southWest = L.latLng(bnds[1], bnds[0]),
+  //       northEast = L.latLng(bnds[3], bnds[2]),
+  //       bounds = L.latLngBounds(southWest, northEast);
+  //   map.fitBounds(bounds)
+  //   L.geoJson(paste).addTo(map);
+  //
+  // }
   // editableLayers.geoJson(geojsonFeature)
 })
 

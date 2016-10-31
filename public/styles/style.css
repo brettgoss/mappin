@@ -47,6 +47,9 @@ body {
 #userfunc div {
   padding-left: 10px; }
 
+#metaspan {
+  font-size: 170%; }
+
 /* Page Content */
 #content {
   font-size: 100%; }
