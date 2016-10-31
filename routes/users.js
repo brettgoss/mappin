@@ -23,13 +23,13 @@ module.exports = (knex) => {
       })
   });
   router.post("/login", (req, res) => {
-  let username = req.body.username
-  res.cookie('users', username)
-  res.redirect("/")
-})
-router.post("/logout", (req, res) => {
-  delete res.clearCookie("user")
-  res.redirect("/")
-})
+    let username = req.body.username
+    res.cookie('users', username)
+   res.redirect("/")
+  })
+  router.post("/logout", (req, res) => {
+    delete res.clearCookie("user")
+    res.redirect("/")
+  })
   return router;
 }
