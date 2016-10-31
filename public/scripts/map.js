@@ -119,48 +119,48 @@ map.addLayer(editableLayers);
 
 
   // Export/Import functions
-  document.getElementById('export').onclick = function(event) {
-
-
-    event.preventDefault();
-    // Extract GeoJson from featureGroup
-    var data = editableLayers.toGeoJSON();
-    var bounds = map.getBounds();
-
-    data.bbox = [[
-      bounds.getSouthWest().lng,
-      bounds.getSouthWest().lat,
-      bounds.getNorthEast().lng,
-      bounds.getNorthEast().lat
-    ]];
-    // Stringify the GeoJson
-    var jsonStr = JSON.stringify(data);
-    var title   = $('.cur-title').text()
-    var user    = $('.user').text()
-    // console.log(user)
-
-    $('.mapstate').attr({'data-title':title});
-    $('.mapstate').attr({'data-user':'1'});
-    $('.mapstate').attr({'data-json':jsonStr});
-
-    var mapState = $('.mapstate').data('json')
-    var mapName = $('.mapstate').data('title')
-    var userName = $('.mapstate').data('user')
-
-    var encodedMapState = encodeURIComponent(jsonStr);
-
-    // $.ajax({
-    //   method: "POST",
-    //   url: "/maps/export",
-    //   data: "user_id=" + userName + "&mapname=" + mapName + "&fc_mapstate=" + encodedMapState,
-    //   dataType: 'json'
-    // }).done(function (data){
-    //   console.log(data)
-    // })
-
-
-
-  }
+  // document.getElementById('export').onclick = function(event) {
+  //
+  //
+  //   event.preventDefault();
+  //   // Extract GeoJson from featureGroup
+  //   var data = editableLayers.toGeoJSON();
+  //   var bounds = map.getBounds();
+  //
+  //   data.bbox = [[
+  //     bounds.getSouthWest().lng,
+  //     bounds.getSouthWest().lat,
+  //     bounds.getNorthEast().lng,
+  //     bounds.getNorthEast().lat
+  //   ]];
+  //   // Stringify the GeoJson
+  //   var jsonStr = JSON.stringify(data);
+  //   var title   = $('.cur-title').text()
+  //   var user    = $('.user').text()
+  //   // console.log(user)
+  //
+  //   $('.mapstate').attr({'data-title':title});
+  //   $('.mapstate').attr({'data-user':'1'});
+  //   $('.mapstate').attr({'data-json':jsonStr});
+  //
+  //   var mapState = $('.mapstate').data('json')
+  //   var mapName = $('.mapstate').data('title')
+  //   var userName = $('.mapstate').data('user')
+  //
+  //   var encodedMapState = encodeURIComponent(jsonStr);
+  //
+  //   // $.ajax({
+  //   //   method: "POST",
+  //   //   url: "/maps/export",
+  //   //   data: "user_id=" + userName + "&mapname=" + mapName + "&fc_mapstate=" + encodedMapState,
+  //   //   dataType: 'json'
+  //   // }).done(function (data){
+  //   //   console.log(data)
+  //   // })
+  //
+  //
+  //
+  // }
 
 
   document.getElementById('import').onclick = function(event) {
