@@ -14,11 +14,9 @@ const knex        = require("knex")(knexConfig[ENV]);
 const knexLogger  = require('knex-logger');
 
 const cookieParser= require('cookie-parser');
-const index       = require("./routes/index");
 const usersRoutes = require("./routes/users");
 const mapsRoutes  = require("./routes/maps");
 const favMaps     = require("./routes/favmaps");
-require("./public/scripts/mapfunc.js")
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/public');
@@ -31,8 +29,8 @@ app.use(knexLogger(knex));
 app.use(cookieParser());
 // const data = {};
 // app.use("/", index(knex));
-app.use("/users", usersRoutes(knex));
-app.use("/maps", mapsRoutes(knex));
+app.use("/users",   usersRoutes(knex));
+app.use("/maps",    mapsRoutes(knex));
 app.use("/favmaps", favMaps(knex));
 
 app.get("/", (req, res) => {

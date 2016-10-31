@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<% if(!login){ console.log(login)} %>
-<% if(login){console.log(username)} %>
+
 <html>
+
 <head>
   <title>MAPPIN | Home</title>
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
@@ -62,7 +62,7 @@
           <div class="dropdown-menu" aria-labelledby="formLogin">
               <form method="post" action="/users/login" class="form-horizontal" id="formLogin">
                 <div class="form-group">
-                  <label for="register" class="col-sm-4 control-label">Login!</label>
+                  <label for="Login" class="col-sm-4 control-label">Login!</label>
                   <div class="col-sm-12">
                     <input type="text" name="username" class="form-control" id="username" placeholder="Username">
                     <input type="password" name="password" class="form-control" id="password" placeholder="Password">
@@ -73,7 +73,10 @@
               </form>
             </div>
         </div>
+        <span id="metaspan" data-id="0" data-user="anon"></span>
+
         <% } else { %>
+        <span id="metaspan" data-id="<%= login %>" data-user="<%= username %>">Welcome, <%= username %></span>
         <form class="navbar-right" id="logout" method="post" action="/users/logout">
           <button class="btn btn-default" type="submit">Logout</button>
         </form>
@@ -84,7 +87,6 @@
   </nav>
   <content>
     <section id="main-container">
-      <script type="text/javascript" src="scripts/mapfunc.js"></script>
 
       <!-- This alert should appear after the user saves a map. -->
 
@@ -109,38 +111,46 @@
           <li class="list-group-item">
 
             <span class="title cur-title">Map Name</span>
-            <span class="user">&#64;Aileen</span>
+            <% if(!login){ %>
+            <span class="user">&#64;anon</span>
+            <% } else { %>
+            <span class="user">&#64;<%= username %></span>
+            <% } %>
             <span class="mapstate">
               <ul class="point"></ul>
             </span>
           </li>
         </ul>
 
-        <h1>Here's da (useless) lists of maps:</h1>
+        <h1>Most Popular Maps:</h1>
          <ul class="list-group">
-          <li class="list-group-item">
-            <span class="title">Rad Map Of Rad Places</span>
-            <span class="user">&#64;Aileen</span>
-          </li>
-          <li class="list-group-item">
-            <span class="title">Meodicre Map Of Meodicre Places</span>
-            <span class="user">&#64;Brett</span>
-          </li>
 
-          <li class="list-group-item">
-            <span class="title">Lame Map Of Lame Places</span>
+          <a data-mapstate='{"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.36303234100342,48.42422408501376]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.3633057586849,48.42458007190751]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.36234552785757,48.42382893664184]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.35338678210977,48.427755364686874]}}],"bbox":[[-123.37547779083253,48.4155301111782,-123.34153175354005,48.4333579198536]]}' class="myMap list-group-item">Taco Spots
+            <span class="user">&#64;Aileen</span>
+          </a>
+
+          <a data-mapstate='{"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.36291398853064,48.42375417849616]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.35597259923819,48.41506724533341]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.35691623389722,48.42517100464639]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.36852483451368,48.45105138752606]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.37677581235769,48.45795699983225]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.39448895305398,48.64919988499773]}}],"bbox":[[-123.64631652832033,48.390002110874164,-123.10317993164064,48.6746400785837]]}' class="myMap list-group-item">Best Burgers
+            <span class="user">&#64;Brett</span>
+          </a>
+
+          <a data-mapstate=${jsonstring} class="myMap list-group-item">Favourite Parks
             <span class="user">&#64;Cecia</span>
-          </li>
+          </a>
+
         </ul>
       </div>
+      <% if(login){ %>
       <div id="filler">
-        Filler Text
+        <h1>My Maps:</h1>
+        <ul id="mymaps" class="list-group">
+        </ul>
       </div>
+      <% } %>
     </section>
     <section id="map-container">
 
       <!-- <div id="export">Create MapState</div> -->
-      <div id="import">Import</div>
+      <!-- <div id="import">Import</div> -->
       <div id="mapid"></div>
       <script type="text/javascript" src="scripts/map.js"></script>
     </section>
