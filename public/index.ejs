@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<% if(!login){ console.log(login)} %>
-<% if(login){console.log(username)} %>
+<% if(!login){console.log(login)} %>
+
 <html>
+
 <head>
   <title>MAPPIN | Home</title>
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
@@ -73,7 +74,10 @@
               </form>
             </div>
         </div>
+        <span id="metaspan" data-id="0" data-user="anon"></span>
+
         <% } else { %>
+        <span id="metaspan" data-id="<%= login %>" data-user="<%= username %>">Welcome, <%= username %></span>
         <form class="navbar-right" id="logout" method="post" action="/users/logout">
           <button class="btn btn-default" type="submit">Logout</button>
         </form>
@@ -109,7 +113,11 @@
           <li class="list-group-item">
 
             <span class="title cur-title">Map Name</span>
-            <span class="user">&#64;Aileen</span>
+            <% if(!login){ %>
+            <span class="user">&#64;anon</span>
+            <% } else { %>
+            <span class="user">&#64;<%= username %></span>
+            <% } %>
             <span class="mapstate">
               <ul class="point"></ul>
             </span>
@@ -133,9 +141,13 @@
           </li>
         </ul>
       </div>
+      <% if(login){ %>
       <div id="filler">
-        Filler Text
+        <h1>My Maps:</h1>
+        <ul id="mymaps" class="list-group">
+        </ul>
       </div>
+      <% } %>
     </section>
     <section id="map-container">
 

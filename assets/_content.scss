@@ -1,5 +1,5 @@
 #content {
-  height: 70%;
+  // height: ;
   font-size: 100%;
   .title {
 
@@ -7,8 +7,11 @@
   .user {
     color: #696969;
     float: right;
+    clear: both;
   }
 }
 #filler {
-  height: 40%;
+  margin-bottom: 50px;
+  height: 60%;
+  // overflow: none;
 }
