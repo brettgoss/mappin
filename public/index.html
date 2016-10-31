@@ -78,13 +78,22 @@
   </nav>
   <content>
     <section id="main-container">
-      <div class="alert alert-success alert-dismissible" role="alert">
+      <!-- This alert should appear after the user saves a map. -->
+
+      <!-- <div class="alert alert-success alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <strong>Success!</strong> This is a test confirmation message.
         <p>We could probably use this built in styling for import confirmation.</p>
-      </div>
+      </div> -->
+
       <div id="content">
         <h1>Current Map:</h1>
+        <form method="POST" id="saveMap" >
+          <button class="btn btn-default" type="submit">Save Map</button>
+        </form>
+
+
+
         <form id="mapname">
           <input type="text" class="form-control" placeholder="NAME YOUR MAP">
         </form>
@@ -99,8 +108,8 @@
           </li>
         </ul>
 
-        <h1>Here's da lists of maps</h1>
-        <ul class="list-group">
+        <!--<h1>Here's da lists of maps</h1>
+         <ul class="list-group">
           <li class="list-group-item">
             <span class="title">Rad Map Of Rad Places</span>
             <span class="user">&#64;Aileen</span>
@@ -114,7 +123,7 @@
             <span class="title">Lame Map Of Lame Places</span>
             <span class="user">&#64;Cecia</span>
           </li>
-        </ul>
+        </ul> -->
       </div>
       <div id="filler">
         Filler Text
