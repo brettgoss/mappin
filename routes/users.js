@@ -2,6 +2,7 @@
 
 const express = require('express');
 const router  = express.Router();
+const cookieParser = require('cookie-parser');
 
 module.exports = (knex) => {
 
@@ -20,8 +21,15 @@ module.exports = (knex) => {
         console.log(req.body)
         res.redirect('/')
       })
-
-  })
-
+  });
+  router.post("/login", (req, res) => {
+  let username = req.body.username
+  res.cookie('users', username)
+  res.redirect("/")
+})
+router.post("/logout", (req, res) => {
+  delete res.clearCookie("user")
+  res.redirect("/")
+})
   return router;
 }
