@@ -2,7 +2,6 @@
 
 const express = require('express');
 const router  = express.Router();
-const cookieParser = require('cookie-parser');
 
 module.exports = (knex) => {
 
@@ -23,12 +22,37 @@ module.exports = (knex) => {
       })
   });
   router.post("/login", (req, res) => {
-    let username = req.body.username
-    res.cookie('users', username)
-   res.redirect("/")
-  })
+    var user = req.body.username;
+    var pass = req.body.password;
+    knex
+      .select('*')
+      .from("users")
+      .where({
+        username: user
+      })
+      .then(function (result){
+          if(result[0].username == user && result[0].password == pass) {
+            var uid = result[0].id;
+            console.log("Yep")
+            res.cookie('userid', uid);
+            res.cookie('username', user);
+            res.redirect("/");
+          } else {
+            console.log("Fail")
+            res.redirect("/");
+          }
+
+      })
+      .catch(function (err){
+        console.log("error", err);
+        res.redirect("/");
+      })
+    })
+
   router.post("/logout", (req, res) => {
-    delete res.clearCookie("user")
+    delete res.clearCookie("username")
+    delete res.clearCookie("userid")
+
     res.redirect("/")
   })
   return router;

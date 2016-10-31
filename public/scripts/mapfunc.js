@@ -1,0 +1,3 @@
+  function mapalert(){
+    alert("waddup")
+  }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+<% if(!login){ console.log(login)} %>
+<% if(login){console.log(username)} %>
 <html>
-
 <head>
   <title>MAPPIN | Home</title>
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
@@ -10,7 +11,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
   <!-- main stylesheet -->
-  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="./styles/style.css" />
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
   <!-- Leaflet.js Script -->
@@ -33,7 +34,7 @@
        <a class="navbar-brand" href="#">MAPPIN.</a>
       </div>
       <div id="userfunc">
-
+        <% if(!login){ %>
         <div class="dropdown navbar-right">
           <button class="btn btn-default dropdown-toggle" type="button" id="formReg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Register
@@ -72,15 +73,19 @@
               </form>
             </div>
         </div>
-        <form id="logout" method="post" action="/users/logout">
+        <% } else { %>
+        <form class="navbar-right" id="logout" method="post" action="/users/logout">
           <button class="btn btn-default" type="submit">Logout</button>
         </form>
+        <% } %>
         <!-- <button type="button" class="btn btn-default navbar-btn">Sign in</button> -->
       </div>
     </div>
   </nav>
   <content>
     <section id="main-container">
+      <script type="text/javascript" src="scripts/mapfunc.js"></script>
+
       <!-- This alert should appear after the user saves a map. -->
 
       <!-- <div class="alert alert-success alert-dismissible" role="alert">
