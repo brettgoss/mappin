@@ -90,11 +90,19 @@
 
       <!-- This alert should appear after the user saves a map. -->
 
-      <!-- <div class="alert alert-success alert-dismissible" role="alert">
+      <div class="alert alert-success alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Success!</strong> This is a test confirmation message.
-        <p>We could probably use this built in styling for import confirmation.</p>
-      </div> -->
+
+        <% if(!login){ %>
+          <strong>Welcome!</strong>
+          <p>Getting Started: If you're a new user, you'll need to register with us in order to create custom maps! Any time you log in, you'll see your custom maps below</p>
+        <% } else { %>
+          <strong>Welcome <%= username %>!</strong>
+          <p>1. First up, name your map by entering a name and hitting "Enter" on your keyboard.</p>
+          <p>2. Add some points to the map: you can add new, drag existing or delete.</p>
+          <p>3. Once you're happy with your map, you can "Save Map", and you're done! .</p>
+        <% } %>
+      </div>
 
       <div id="content">
         <h1>Current Map:</h1>
@@ -133,7 +141,7 @@
             <span class="user">&#64;Brett</span>
           </a>
 
-          <a data-mapstate=${jsonstring} class="myMap list-group-item">Favourite Parks
+          <a data-mapstate='{"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.63273382186891,48.6401687181191]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.63857030868532,48.6778138868246]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.55136632919313,48.701157900730486]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.57333898544313,48.781306280450515]}},{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[-123.38912487030031,48.78017513095949]}}],"bbox":[[-123.77471923828126,48.57660713188409,-123.2329559326172,48.83941303819501]]}' class="myMap list-group-item">Favourite Parks
             <span class="user">&#64;Cecia</span>
           </a>
 
