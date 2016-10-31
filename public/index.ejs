@@ -90,11 +90,19 @@
 
       <!-- This alert should appear after the user saves a map. -->
 
-      <!-- <div class="alert alert-success alert-dismissible" role="alert">
+      <div class="alert alert-success alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Success!</strong> This is a test confirmation message.
-        <p>We could probably use this built in styling for import confirmation.</p>
-      </div> -->
+
+        <% if(!login){ %>
+          <strong>Welcome!</strong>
+          <p>Getting Started: If you're a new user, you'll need to register with us in order to create custom maps! Any time you log in, you'll see your custom maps below</p>
+        <% } else { %>
+          <strong>Welcome <%= username %>!</strong>
+          <p>1. First up, name your map by entering a name and hitting "Enter" on your keyboard.</p>
+          <p>2. Add some points to the map: you can add new, drag existing or delete.</p>
+          <p>3. Once you're happy with your map, you can "Save Map", and you're done! .</p>
+        <% } %>
+      </div>
 
       <div id="content">
         <h1>Current Map:</h1>
