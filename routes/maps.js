@@ -14,6 +14,8 @@ module.exports = (knex) => {
     });
   })
   router.post("/export", (req, res) => {
+    var user = req.cookies.user;
+
     knex('maps')
       .insert(req.body)
       .then(() => {
