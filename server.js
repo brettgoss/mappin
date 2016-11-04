@@ -5,8 +5,8 @@ require('dotenv').config({silent: true});
 
 // Checking .env for App port and environment.
 // If none found, use default values.
-const PORT        = process.env.PORT || 8080;
-const ENV         = process.env.ENV  || "development";
+const PORT         = process.env.PORT || 8080;
+const ENV          = process.env.ENV  || "development";
 
 // Requiring Express and server dependencies
 const express      = require("express");
