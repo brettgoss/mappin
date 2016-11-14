@@ -8,21 +8,19 @@ MAPPIN is your new favorite tool for creating and saving custom maps!
 _BENEFITS:_
 
 View custom lists curated by our allstar clients and developers!
-Authenticated Users have the ability to create custom maps for whatever they choose! Eateries, sites, landmarks, parks, schools, businesses, friends, the skies the limit! (Or the sea, depending how you map.)
+Users have the ability to create custom maps for whatever they choose! Eateries, sites, landmarks, parks, schools, businesses, friends, the sky's the limit! (Or the sea, depending how you map.)
 
 _FEATURES:_
 
-Add, edit, and remove points on a map. Add a title and description to your points so you can talk about them. Save your maps to your user profile, so you can review, reminise, and share. For example: You're going on a trip! Make a custom map of landmarks and cafes to visit during the day, and another map for shows and restaurants at night! 
+Add, edit, and remove points on a map. Save your maps to your user profile, so you can review, reminise, and share. For example: You're going on a trip! Make a custom map of landmarks and cafes to visit during the day, and another map for shows and restaurants at night! 
 
 _Never Lost, Merely Mappin._
 
 
 # Resources #
-MAPPIN is based on Leaflet! Leaflet is the leading open-source JavaScript library. Thanks Leaflet!
+MAPPIN is based on Leaflet! Leaflet is the leading open-source JavaScript map library. Thanks Leaflet!
 
 User Stories & Priorities: https://trello.com/b/2OaoC6V5/abc-inc-midterm
-
-ERD Example: https://www.draw.io/#LABC%20inc_Mappin%20ERD
 
 Leaflet: http://leafletjs.com/
 
