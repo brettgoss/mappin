@@ -2,7 +2,7 @@
 ABC incorporated is brought to you by Aileen O'Brien, Brett Goss, & Cecia Poders. Three perfect strangers, who came together under the Lighthouse Labs umbrella to bring you this monochromatic jewel of a MapApp.
 
 
-# MAPPIN™ #
+# [MAPPIN](https://mappin-maps.herokuapp.com/)™ #
 MAPPIN is your new favorite tool for creating and saving custom maps!
 
 _BENEFITS:_
