@@ -20,6 +20,8 @@ _Never Lost, Merely Mappin._
 # Resources #
 MAPPIN is based on Leaflet! Leaflet is the leading open-source JavaScript map library. Thanks Leaflet!
 
+Deployed with Heroku: https://mappin-maps.herokuapp.com/
+
 User Stories & Priorities: https://trello.com/b/2OaoC6V5/abc-inc-midterm
 
 Leaflet: http://leafletjs.com/
